@@ -12,179 +12,337 @@ $color-footer-border: #0ff;
 $animation-fadeIn-duration: 1.5s;
 $animation-fadeSlideUp-duration: 0.8s;
 
+// BREAKPOINTS (puntos de quiebre para pantallas)
+// Estos son valores comunes, puedes ajustarlos si lo necesitas
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
 // RESET GENERAL
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: $font-family;
-  font-size: $font-size-base;
-  background-color: $color-bg;
-  color: $color-text;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    background-color: $color-bg;
+    color: $color-text;
+    overflow-x: hidden; // Previene el scroll horizontal si algo se desborda
 }
 
 // ANIMACIONES
 @keyframes fadeIn {
-  to { opacity: 1; }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeSlideUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-// CLASE PRESENTACIÓN
-.Presentación {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 40px 10px 40px 0;
-  gap: 120px;
-  max-width: 100%;
-  margin: 0;
-
-  img {
-    width: 750px;
-    height: auto;
-    border-radius: 10px;
-    opacity: 0;
-    animation: fadeIn $animation-fadeIn-duration forwards;
-    flex-shrink: 0;
-    margin-left: 0;
-  }
-}
-
-.Presentación-Texto {
-  max-width: 800px;
-  margin-left: 150px;
-  display: flex;
-  flex-direction: column;
-
-  h3 {
-    align-self: flex-start;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    color: $color-text-secondary;
-  }
-
-  p {
-    font-size: 1.2rem;
-    text-align: justify;
-  }
-}
-
-// PÁGINAS (modificadores de body)
-body {
-  &.quienessomos,
-  &.servicios,
-  &.Testimonios {
-    background-color: $color-bg;
-    color: $color-text;
-  }
-
-  &.Testimonios {
-    padding: 0 40px;
-  }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 // HEADER
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; // Añadido padding horizontal para que no se pegue a los bordes
+    box-sizing: border-box; // Incluir padding en el ancho total
 
-  h1 {
-    color: $color-header-title;
-    margin: 0;
-  }
-
-  nav {
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      padding: 0;
-      margin: 0;
-
-      li {
-        a {
-          color: $color-text;
-          text-decoration: none;
-          font-weight: 600;
-
-          &:hover {
-            color: $color-header-link-hover;
-          }
-        }
-      }
+    h1 {
+        color: $color-header-title;
+        margin: 0;
+        font-size: 2em; // Tamaño relativo
     }
-  }
+
+    nav {
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding: 0;
+            margin: 0;
+
+            li {
+                a {
+                    color: $color-text;
+                    text-decoration: none;
+                    font-weight: 600;
+
+                    &:hover {
+                        color: $color-header-link-hover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// CLASE PRESENTACIÓN
+.Presentación {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 0 40px 0; // Ajustado padding
+    gap: 120px;
+    max-width: 100%;
+    margin: 0; // Margen global del elemento
+    box-sizing: border-box;
+
+    img {
+        width: 750px; // Ancho fijo para desktop
+        height: auto;
+        border-radius: 10px;
+        opacity: 0;
+        animation: fadeIn $animation-fadeIn-duration forwards;
+        flex-shrink: 0;
+        margin-left: 0; // Mantener este en 0 para desktop
+    }
+}
+
+.Presentación-Texto {
+    max-width: 800px;
+    margin-left: 150px; // Margen para desktop
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px; // Añadir un poco de padding para que el texto no toque el borde derecho
+    box-sizing: border-box;
+
+
+    h3 {
+        align-self: flex-start;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        color: $color-text-secondary;
+    }
+
+    p {
+        font-size: 1.2rem;
+        text-align: justify;
+    }
 }
 
 // TESTIMONIOS
 .testimonios-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding: 40px 0;
-  max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px; // Asegura padding en todos los lados
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .testimonio {
-  background-color: $color-testimonio-bg;
-  border-radius: 10px;
-  padding: 20px;
-  width: 100%;
-  box-shadow: 0 0 10px $color-testimonio-shadow;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  opacity: 0;
-  animation-name: fadeSlideUp;
-  animation-duration: $animation-fadeSlideUp-duration;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
+    background-color: $color-testimonio-bg;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%; // Esto ya es bueno para responsividad
+    box-shadow: 0 0 10px $color-testimonio-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    animation-name: fadeSlideUp;
+    animation-duration: $animation-fadeSlideUp-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    box-sizing: border-box; // Asegura que el padding no añada ancho extra
 
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    line-height: 1.4;
-    text-align: justify;
-  }
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+        text-align: justify;
+    }
 
-  h4 {
-    font-weight: 700;
-    color: $color-header-title;
-    margin: 0;
-    align-self: flex-end;
-  }
+    h4 {
+        font-weight: 700;
+        color: $color-header-title;
+        margin: 0;
+        align-self: flex-end;
+    }
 }
 
 // Delay escalonado para animaciones
-.testimonio:nth-child(1) { animation-delay: 0.2s; }
-.testimonio:nth-child(2) { animation-delay: 0.4s; }
-.testimonio:nth-child(3) { animation-delay: 0.6s; }
-.testimonio:nth-child(4) { animation-delay: 0.8s; }
-.testimonio:nth-child(5) { animation-delay: 1s; }
+.testimonio:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.testimonio:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.testimonio:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.testimonio:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.testimonio:nth-child(5) {
+    animation-delay: 1s;
+}
 
 // FOOTER
 footer {
-  padding: 20px 0;
-  border-top: 1px solid $color-footer-border;
-  text-align: center;
-  color: $color-text;
+    padding: 20px 40px; // Añadido padding horizontal
+    border-top: 1px solid $color-footer-border;
+    text-align: center;
+    color: $color-text;
+    box-sizing: border-box;
 
-  .social-icons {
-    margin-top: 10px;
+    .social-icons {
+        margin-top: 10px;
 
-    a {
-      margin: 0 10px;
+        a {
+            margin: 0 10px;
+        }
     }
-  }
 
-  .icon-social {
-    width: 24px;
-    height: 24px;
-    filter: invert(62%) sepia(83%) saturate(4846%) hue-rotate(161deg) brightness(95%) contrast(95%);
-  }
+    .icon-social {
+        width: 24px;
+        height: 24px;
+        filter: invert(62%) sepia(83%) saturate(4846%) hue-rotate(161deg) brightness(95%) contrast(95%);
+    }
+}
+
+// PÁGINAS (modificadores de body)
+body {
+
+    &.quienessomos,
+    &.servicios,
+    &.Testimonios {
+        background-color: $color-bg;
+        color: $color-text;
+    }
+
+    &.Testimonios {
+        padding: 0 40px; // Mantener padding aquí si se aplica a todo el body
+    }
+}
+
+
+// --- MEDIA QUERIES ---
+
+// Para Tabletas (máximo 768px de ancho de pantalla)
+@media screen and (max-width: $breakpoint-tablet) {
+    header {
+        flex-direction: column; // Navegación debajo del título
+        text-align: center;
+        padding: 20px; // Ajustar padding
+    }
+
+    header h1 {
+        margin-bottom: 15px;
+        font-size: 1.8em;
+    }
+
+    header nav ul {
+        gap: 15px; // Reducir espacio entre enlaces
+        justify-content: center;
+        flex-wrap: wrap; // Permitir que los enlaces se envuelvan
+    }
+
+    .Presentación {
+        flex-direction: column; // Imagen y texto uno debajo del otro
+        padding: 20px; // Padding general para la sección
+        gap: 30px; // Menos espacio entre imagen y texto
+        align-items: center; // Centrar el contenido
+    }
+
+    .Presentación img {
+        width: 80%; // La imagen ocupa el 80% del ancho del contenedor
+        max-width: 500px; // Pero no más de 500px para no ser demasiado grande en tabletas
+        margin-left: 0; // Eliminar margen izquierdo fijo
+    }
+
+    .Presentación-Texto {
+        margin-left: 0; // Eliminar margen izquierdo fijo
+        max-width: 90%; // Ocupa más ancho
+        padding: 0 20px; // Añadir padding interno
+        text-align: center; // Centrar el texto
+    }
+
+    .Presentación-Texto h3 {
+        align-self: center; // Centrar el título también
+    }
+
+    .Presentación-Texto p {
+        font-size: 1.1rem;
+    }
+
+    .testimonios-container {
+        padding: 20px; // Ajustar padding
+    }
+
+    .testimonio {
+        padding: 15px; // Reducir padding interno
+    }
+
+    footer {
+        padding: 20px; // Ajustar padding
+    }
+}
+
+// Para Teléfonos Móviles (máximo 480px de ancho de pantalla)
+@media screen and (max-width: $breakpoint-mobile) {
+
+    html,
+    body {
+        font-size: 14px; // Tamaño de fuente base más pequeño para móviles
+    }
+
+    header h1 {
+        font-size: 1.5em; // Títulos aún más pequeños
+    }
+
+    header nav ul {
+        flex-direction: column; // Los elementos de la navegación se apilan
+        gap: 10px; // Menos espacio entre ellos
+    }
+
+    .Presentación {
+        padding: 15px; // Menos padding
+        gap: 20px;
+    }
+
+    .Presentación img {
+        width: 90%; // Ocupa más ancho en móviles
+    }
+
+    .Presentación-Texto {
+        padding: 0 10px;
+    }
+
+    .Presentación-Texto p {
+        font-size: 1rem; // Texto de párrafo más pequeño
+    }
+
+    .testimonios-container {
+        padding: 15px;
+    }
+
+    .testimonio {
+        padding: 10px;
+
+        h4 {
+            font-size: 0.9em; // Ajustar el tamaño del nombre del autor
+        }
+    }
+
+    footer {
+        padding: 15px;
+
+        .social-icons a {
+            margin: 0 5px; // Menos espacio entre iconos sociales
+        }
+    }
 }

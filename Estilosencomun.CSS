@@ -1,0 +1,214 @@
+
+/* Estilosencomun.CSS */
+
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Body */
+body {
+  background: #0f0f1a;
+  color: #e0e0ff;
+  line-height: 1.6;
+  font-size: 18px; /* Tamaño base para desktop */
+  padding: 0 40px 40px; /* Padding general para desktop */
+  cursor: url('IMG/Francesa.png'), auto;
+  overflow-x: hidden; /* Asegura que no haya scroll horizontal no deseado */
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #00ffff, #0077ff);
+  padding: 20px 40px; /* Padding general para desktop */
+  border-radius: 0 0 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px #00ffffaa;
+  box-sizing: border-box;
+}
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem; /* Tamaño para desktop */
+  color: #f1f1f1;
+  text-shadow: 0 0 10px #00ffff;
+  animation: neonGlow 3s infinite ease-in-out alternate;
+  line-height: 1.2;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+header nav ul a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+header nav ul a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00ffff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+header nav ul a:hover {
+  color: #00ffffdd;
+}
+header nav ul a:hover::after {
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #0077ff, #00ffff);
+  color: #e0e0ff;
+  text-align: center;
+  padding: 15px 40px; /* Ajustado padding horizontal para desktop */
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 0 15px #0077ffaa;
+  font-size: 1rem;
+  margin-top: 40px;
+  animation: neonGlow 3s infinite ease-in-out alternate;
+  box-sizing: border-box;
+}
+
+/* Audio futurista */
+.audio-futurista {
+  background-color: #011f1f;
+  padding: 20px;
+  border: 2px solid #0ff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  width: fit-content;
+  margin: 40px auto;
+  animation: pulse 4s infinite ease-in-out;
+  transition: transform 0.3s;
+  box-sizing: border-box;
+}
+.audio-futurista:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+}
+.audio-futurista #audioFondo {
+  width: 150px;
+  height: 25px;
+  outline: none;
+  background-color: transparent;
+  filter: drop-shadow(0 0 5px #0ff);
+}
+.audio-futurista #audioFondo::-webkit-media-controls-panel {
+  height: 25px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Animaciones */
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 60px #00ffff;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  }
+  50% {
+    box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
+  }
+  100% {
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  }
+}
+
+/* Responsive Design - Media Queries */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px; /* Ajustar el tamaño de fuente base para móviles */
+    padding: 0 20px 20px; /* Reducir el padding general del body */
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  header nav ul a {
+    margin-left: 0;
+    padding: 5px 0;
+  }
+
+  footer {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .audio-futurista {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .audio-futurista #audioFondo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 0 10px 10px;
+  }
+
+  header {
+    padding: 10px 15px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    padding: 8px 10px;
+  }
+
+  .audio-futurista {
+    padding: 10px;
+  }
+}

@@ -12,6 +12,10 @@ $color-border: #0ff;
 $color-shadow1: #0ff;
 $color-shadow2: #0077ffaa;
 
+// BREAKPOINTS (puntos de quiebre para pantallas)
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
+
 // Importar fuentes
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
 
@@ -28,28 +32,31 @@ body {
   background: $color-bg;
   color: $color-text;
   line-height: 1.6;
-  font-size: 18px;
-  padding: 0 20px 40px;
-  cursor: url('IMG/Francesa.png'), auto;
+  font-size: 18px; // Tamaño base para desktop
+  padding: 0 40px 40px; // Padding general para desktop
+  cursor: url('IMG/Francesa.png'), auto; // Considera que los cursores personalizados pueden no verse en todos los navegadores/dispositivos móviles
+  overflow-x: hidden; // Asegura que no haya scroll horizontal no deseado
 }
 
 // Header
 header {
   background: linear-gradient(90deg, $color-accent1, $color-accent2);
-  padding: 20px 40px;
+  padding: 20px 40px; // Padding general para desktop
   border-radius: 0 0 30px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 0 20px $color-accent-transparent;
+  box-sizing: border-box; // Crucial para que el padding no afecte el ancho total
 
   h1 {
     font-family: $font-secondary;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2.5rem; // Tamaño para desktop
     color: #f1f1f1;
     text-shadow: 0 0 10px $color-accent1;
     animation: neonGlow 3s infinite ease-in-out alternate;
+    line-height: 1.2; // Mejorar legibilidad en líneas cortas
   }
 
   nav {
@@ -57,6 +64,8 @@ header {
       list-style: none;
       display: flex;
       gap: 30px;
+      padding: 0;
+      margin: 0; // Asegurarse de que no haya margen extra
     }
 
     a {
@@ -94,12 +103,13 @@ footer {
   background: linear-gradient(90deg, $color-accent2, $color-accent1);
   color: $color-text;
   text-align: center;
-  padding: 15px 20px;
+  padding: 15px 40px; // Ajustado padding horizontal para desktop
   border-radius: 30px 30px 0 0;
   box-shadow: 0 0 15px $color-shadow2;
   font-size: 1rem;
   margin-top: 40px;
   animation: neonGlow 3s infinite ease-in-out alternate;
+  box-sizing: border-box; // Crucial para que el padding no afecte el ancho total
 }
 
 // Audio futurista
@@ -109,10 +119,11 @@ footer {
   border: 2px solid $color-border;
   border-radius: 15px;
   box-shadow: 0 0 20px $color-shadow1, 0 0 40px $color-shadow1 inset;
-  width: fit-content;
+  width: fit-content; // Ideal para desktop
   margin: 40px auto;
   animation: pulse 4s infinite ease-in-out;
   transition: transform 0.3s;
+  box-sizing: border-box;
 
   &:hover {
     transform: scale(1.02);
@@ -156,22 +167,74 @@ footer {
   }
 }
 
-// Responsive Nav
-@media (max-width: 600px) {
+// Responsive Design - Media Queries
+@media screen and (max-width: $breakpoint-tablet) { // Hasta 768px (tabletas y móviles)
+  body {
+    font-size: 16px; // Ajustar el tamaño de fuente base para móviles
+    padding: 0 20px 20px; // Reducir el padding general del body
+  }
+
   header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; // Apilar el título y la navegación
+    align-items: center; // Centrar los elementos
+    padding: 15px 20px; // Reducir padding del header
+    border-radius: 0 0 20px 20px; // Ajustar radio si se desea
+  }
 
-    nav {
-      ul {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 0;
-      }
+  header h1 {
+    font-size: 1.8rem; // Tamaño de fuente más pequeño para el título del header
+    margin-bottom: 10px; // Espacio debajo del título
+  }
 
-      a {
-        margin-left: 0;
-      }
-    }
+  header nav ul {
+    flex-direction: column; // Apilar los elementos de la navegación
+    gap: 8px; // Menos espacio entre enlaces
+    padding: 0;
+    width: 100%; // Ocupar todo el ancho para que los enlaces se vean mejor
+    align-items: center; // Centrar los elementos de la lista de navegación
+  }
+
+  header nav ul a {
+    margin-left: 0; // Asegurar que no haya margen izquierdo que desplace los enlaces
+    padding: 5px 0; // Un poco de padding vertical para los enlaces
+  }
+
+  footer {
+    padding: 10px 20px; // Reducir padding del footer
+    font-size: 0.9rem; // Fuente un poco más pequeña
+    border-radius: 20px 20px 0 0; // Ajustar radio si se desea
+  }
+
+  .audio-futurista {
+    width: 90%; // El reproductor de audio ocupa más ancho
+    margin: 20px auto; // Reducir margen vertical
+    padding: 15px; // Reducir padding
+  }
+
+  .audio-futurista #audioFondo {
+    width: 100%; // El control de audio ocupa todo el ancho disponible
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) { // Hasta 480px (móviles muy pequeños)
+  body {
+    font-size: 14px; // Fuente base aún más pequeña
+    padding: 0 10px 10px; // Más reducción de padding
+  }
+
+  header {
+    padding: 10px 15px; // Padding aún más reducido
+  }
+
+  header h1 {
+    font-size: 1.5rem; // Título aún más pequeño
+  }
+
+  footer {
+    padding: 8px 10px; // Más reducción de padding
+  }
+
+  .audio-futurista {
+    padding: 10px;
   }
 }
