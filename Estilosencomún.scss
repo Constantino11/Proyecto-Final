@@ -1,0 +1,177 @@
+// Variables
+$font-primary: 'Roboto Mono', monospace;
+$font-secondary: 'Orbitron', sans-serif;
+
+$color-bg: #0f0f1a;
+$color-text: #e0e0ff;
+$color-accent1: #00ffff;
+$color-accent2: #0077ff;
+$color-accent-transparent: #00ffffaa;
+$color-accent-dd: #00ffffdd;
+$color-border: #0ff;
+$color-shadow1: #0ff;
+$color-shadow2: #0077ffaa;
+
+// Importar fuentes
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
+
+// Reset básico
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+// Body
+body {
+  background: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+  font-size: 18px;
+  padding: 0 20px 40px;
+  cursor: url('IMG/Francesa.png'), auto;
+}
+
+// Header
+header {
+  background: linear-gradient(90deg, $color-accent1, $color-accent2);
+  padding: 20px 40px;
+  border-radius: 0 0 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px $color-accent-transparent;
+
+  h1 {
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #f1f1f1;
+    text-shadow: 0 0 10px $color-accent1;
+    animation: neonGlow 3s infinite ease-in-out alternate;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    a {
+      color: $color-accent1;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: $color-accent1;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+      }
+
+      &:hover {
+        color: $color-accent-dd;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  background: linear-gradient(90deg, $color-accent2, $color-accent1);
+  color: $color-text;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 0 15px $color-shadow2;
+  font-size: 1rem;
+  margin-top: 40px;
+  animation: neonGlow 3s infinite ease-in-out alternate;
+}
+
+// Audio futurista
+.audio-futurista {
+  background-color: #011f1f;
+  padding: 20px;
+  border: 2px solid $color-border;
+  border-radius: 15px;
+  box-shadow: 0 0 20px $color-shadow1, 0 0 40px $color-shadow1 inset;
+  width: fit-content;
+  margin: 40px auto;
+  animation: pulse 4s infinite ease-in-out;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px $color-shadow1, 0 0 50px $color-shadow1 inset;
+  }
+
+  #audioFondo {
+    width: 150px;
+    height: 25px;
+    outline: none;
+    background-color: transparent;
+    filter: drop-shadow(0 0 5px $color-border);
+
+    &::-webkit-media-controls-panel {
+      height: 25px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+// Animaciones
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px $color-accent1, 0 0 10px $color-accent1, 0 0 20px $color-accent1, 0 0 40px $color-accent1;
+  }
+  50% {
+    text-shadow: 0 0 10px $color-accent1, 0 0 20px $color-accent1, 0 0 30px $color-accent1, 0 0 60px $color-accent1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 20px $color-shadow1, 0 0 40px $color-shadow1 inset;
+  }
+  50% {
+    box-shadow: 0 0 30px $color-shadow1, 0 0 60px $color-shadow1 inset;
+  }
+  100% {
+    box-shadow: 0 0 20px $color-shadow1, 0 0 40px $color-shadow1 inset;
+  }
+}
+
+// Responsive Nav
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    nav {
+      ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+      }
+
+      a {
+        margin-left: 0;
+      }
+    }
+  }
+}

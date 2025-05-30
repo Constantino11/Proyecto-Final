@@ -1,0 +1,190 @@
+// Variables para colores y fuentes
+$font-family: 'Mulish', sans-serif;
+$font-size-base: 16px;
+$color-bg: #000;
+$color-text: #0ff;
+$color-text-secondary: #ccc;
+$color-header-title: silver;
+$color-header-link-hover: #0aa;
+$color-testimonio-bg: #011f1f;
+$color-testimonio-shadow: #0ff;
+$color-footer-border: #0ff;
+$animation-fadeIn-duration: 1.5s;
+$animation-fadeSlideUp-duration: 0.8s;
+
+// RESET GENERAL
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: $color-bg;
+  color: $color-text;
+}
+
+// ANIMACIONES
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeSlideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+// CLASE PRESENTACIÓN
+.Presentación {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 10px 40px 0;
+  gap: 120px;
+  max-width: 100%;
+  margin: 0;
+
+  img {
+    width: 750px;
+    height: auto;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn $animation-fadeIn-duration forwards;
+    flex-shrink: 0;
+    margin-left: 0;
+  }
+}
+
+.Presentación-Texto {
+  max-width: 800px;
+  margin-left: 150px;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    align-self: flex-start;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: $color-text-secondary;
+  }
+
+  p {
+    font-size: 1.2rem;
+    text-align: justify;
+  }
+}
+
+// PÁGINAS (modificadores de body)
+body {
+  &.quienessomos,
+  &.servicios,
+  &.Testimonios {
+    background-color: $color-bg;
+    color: $color-text;
+  }
+
+  &.Testimonios {
+    padding: 0 40px;
+  }
+}
+
+// HEADER
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  h1 {
+    color: $color-header-title;
+    margin: 0;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+
+      li {
+        a {
+          color: $color-text;
+          text-decoration: none;
+          font-weight: 600;
+
+          &:hover {
+            color: $color-header-link-hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+// TESTIMONIOS
+.testimonios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 0;
+  max-width: 100%;
+}
+
+.testimonio {
+  background-color: $color-testimonio-bg;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 0 10px $color-testimonio-shadow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  animation-name: fadeSlideUp;
+  animation-duration: $animation-fadeSlideUp-duration;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  h4 {
+    font-weight: 700;
+    color: $color-header-title;
+    margin: 0;
+    align-self: flex-end;
+  }
+}
+
+// Delay escalonado para animaciones
+.testimonio:nth-child(1) { animation-delay: 0.2s; }
+.testimonio:nth-child(2) { animation-delay: 0.4s; }
+.testimonio:nth-child(3) { animation-delay: 0.6s; }
+.testimonio:nth-child(4) { animation-delay: 0.8s; }
+.testimonio:nth-child(5) { animation-delay: 1s; }
+
+// FOOTER
+footer {
+  padding: 20px 0;
+  border-top: 1px solid $color-footer-border;
+  text-align: center;
+  color: $color-text;
+
+  .social-icons {
+    margin-top: 10px;
+
+    a {
+      margin: 0 10px;
+    }
+  }
+
+  .icon-social {
+    width: 24px;
+    height: 24px;
+    filter: invert(62%) sepia(83%) saturate(4846%) hue-rotate(161deg) brightness(95%) contrast(95%);
+  }
+}

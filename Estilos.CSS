@@ -1,4 +1,4 @@
-/*  RESET GENERAL  */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,7 +8,7 @@ html, body {
     color: #0ff;
 }
 
-/*  ANIMACIONES  */
+
 @keyframes fadeIn {
     to { opacity: 1; }
 }
@@ -18,7 +18,7 @@ html, body {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/*  CLASE PRESENTACIÓN  */
+
 .Presentación {
     display: flex;
     align-items: center;
@@ -58,26 +58,26 @@ html, body {
     text-align: justify;
 }
 
-/*  PÁGINA: QUIÉNES SOMOS  */
+
 body.quienessomos {
     background-color: #000;
     color: #0ff;
 }
 
-/* PÁGINA: SERVICIOS */
+
 body.servicios {
     background-color: #000;
     color: #0ff;
 }
 
-/*  PÁGINA: TESTIMONIOS */
+
 body.Testimonios {
     background-color: #000;
     color: #0ff;
     padding: 0 40px;
 }
 
-/* HEADER */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -108,7 +108,7 @@ nav ul li a:hover {
     color: #0aa;
 }
 
-/* TESTIMONIOS */
+
 .testimonios-container {
     display: flex;
     flex-direction: column;
@@ -147,14 +147,14 @@ nav ul li a:hover {
     align-self: flex-end;
 }
 
-/* Delay escalonado */
+
 .testimonio:nth-child(1) { animation-delay: 0.2s; }
 .testimonio:nth-child(2) { animation-delay: 0.4s; }
 .testimonio:nth-child(3) { animation-delay: 0.6s; }
 .testimonio:nth-child(4) { animation-delay: 0.8s; }
 .testimonio:nth-child(5) { animation-delay: 1s; }
 
-/* FOOTER */
+
 footer {
     padding: 20px 0;
     border-top: 1px solid #0ff;
