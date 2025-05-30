@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoFinal/inicio</title>
+    <link rel="stylesheet" href="Estilos.CSS">
+    <link rel="stylesheet" href="Estilosencomún.CSS">
+
+</head>
+
+<body>
+    <header>
+        <!--Encabezado-->
+        <h1><a href="index.html" style="color: inherit; text-decoration: none;">Mantech</a></h1>
+
+
+        <nav>
+            <ul>
+                <li><a href="https://portal.mantech.com.ar/login?returnUrl=%2Fapp" target="_blank">Log In</a></li>
+                <li><a href="Quienes_somos.html">¿Quienes Somos?</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Cuerpo de página-->
+
+    <main>
+        <div class="Presentación">
+            <img id="logo" src="IMG/Logo Futurista de Mantech.png" alt="Logo de Mantech">
+
+            <div class="Presentación-Texto">
+                <h3>¿Por qué elegir Mantech?</h3>
+                <p>
+                    Elegir Mantech es apostar por la eficiencia, el control y la tranquilidad en el mantenimiento de tus
+                    maquinarias.
+                    Nuestra app está diseñada para simplificar cada etapa del proceso, desde la programación de tareas
+                    hasta
+                    el seguimiento en tiempo real y la generación de reportes automáticos.
+                    Con Mantech, reducís tiempos de inactividad, prolongás la vida útil de tus equipos y tomás
+                    decisiones
+                    basadas en datos claros y precisos.
+                    Es una herramienta intuitiva, pensada para técnicos, supervisores y gerentes que necesitan
+                    resultados
+                    concretos y confiables.
+                    Mantech no es solo una app: es tu aliado estratégico en el cuidado de lo más valioso de tu
+                    operación.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            const images = [
+                'IMG/Logotipo Tecnológico en Neón Azul.png',
+                'IMG/Obrero.png',
+                'IMG/Estadisticas.png',
+            ];
+            let current = 0;
+            const logo = document.getElementById('logo');
+
+            setInterval(() => {
+                current = (current + 1) % images.length;
+                logo.src = images[current];
+            }, 3000); 
+        </script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mantech. Todos los derechos reservados.</p>
+        <p>Administración: 011 1234 5678</p>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/tu-pagina" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/icons8-facebook-nuevo-24.png" alt="" class="icon-social">
+            </a>
+            <a href="https://www.twitter.com/tu-pagina" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/icons8-x-24.png" alt="Twitter" class="icon-social">
+            </a>
+            <a href="https://www.instagram.com/tu-pagina" target="_blank" rel="noopener noreferrer">
+                <img src="IMG/icons8-instagram-24.png" alt="Instagram" class="icon-social">
+            </a>
+        </div>
+
+        <!-- Reproductor de música -->
+        <audio id="audioFondo" controls autoplay loop style="display: block; margin: 40px auto;">
+            <source src="Musica/this-minimal-technology_pure-12327.mp3" type="audio/mpeg">
+            
+        </audio>
+
+
+    </footer>
+</body>
+
+</html>

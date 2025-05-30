@@ -1,0 +1,164 @@
+/* Importar fuentes futuristas */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Body */
+body {
+  background: #0f0f1a;
+  color: #e0e0ff;
+  line-height: 1.6;
+  font-size: 18px;
+  padding: 0 20px 40px;
+  cursor: url('IMG/Francesa.png'), auto;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #00ffff, #0077ff);
+  padding: 20px 40px;
+  border-radius: 0 0 30px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px #00ffffaa;
+}
+
+/* Título */
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #f1f1f1;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00ffff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+}
+
+nav a:hover {
+  color: #00ffffdd;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #0077ff, #00ffff);
+  color: #e0e0ff;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0 0 15px #0077ffaa;
+  font-size: 1rem;
+  margin-top: 40px;
+  animation: neonGlow 3s infinite ease-in-out alternate;
+}
+
+/* Efecto de brillo */
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 60px #00ffff;
+  }
+}
+
+header h1 {
+  animation: neonGlow 3s infinite ease-in-out alternate;
+}
+
+/* Audio */
+.audio-futurista {
+  background-color: #011f1f;
+  padding: 20px;
+  border: 2px solid #0ff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  width: fit-content;
+  margin: 40px auto;
+  animation: pulse 4s infinite ease-in-out;
+  transition: transform 0.3s;
+}
+
+.audio-futurista:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff inset;
+}
+
+#audioFondo {
+  width: 150px;
+  height: 25px;
+  outline: none;
+  background-color: transparent;
+  filter: drop-shadow(0 0 5px #0ff);
+}
+
+#audioFondo::-webkit-media-controls-panel {
+  height: 25px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  }
+  50% {
+    box-shadow: 0 0 30px #0ff, 0 0 60px #0ff inset;
+  }
+  100% {
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  }
+}
+
+/* Responsive Nav */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  nav a {
+    margin-left: 0;
+  }
+}
