@@ -1,7 +1,7 @@
-/* Importar fuentes futuristas */
+
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
 
-/* Reset básico */
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@
   font-family: 'Roboto Mono', monospace;
 }
 
-/* Body */
+
 body {
   background: #0f0f1a;
   color: #e0e0ff;
@@ -19,7 +19,7 @@ body {
   cursor: url('IMG/Francesa.png'), auto;
 }
 
-/* Header */
+
 header {
   background: linear-gradient(90deg, #00ffff, #0077ff);
   padding: 20px 40px;
@@ -30,7 +30,7 @@ header {
   box-shadow: 0 0 20px #00ffffaa;
 }
 
-/* Título */
+
 header h1 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
@@ -39,7 +39,7 @@ header h1 {
   text-shadow: 0 0 10px #00ffff;
 }
 
-/* Navegación */
+
 nav ul {
   list-style: none;
   display: flex;
@@ -74,7 +74,7 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Footer */
+
 footer {
   background: linear-gradient(90deg, #0077ff, #00ffff);
   color: #e0e0ff;
@@ -87,7 +87,7 @@ footer {
   animation: neonGlow 3s infinite ease-in-out alternate;
 }
 
-/* Efecto de brillo */
+
 @keyframes neonGlow {
   0%, 100% {
     text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
@@ -101,7 +101,7 @@ header h1 {
   animation: neonGlow 3s infinite ease-in-out alternate;
 }
 
-/* Audio */
+
 .audio-futurista {
   background-color: #011f1f;
   padding: 20px;
@@ -145,7 +145,7 @@ header h1 {
   }
 }
 
-/* Responsive Nav */
+
 @media (max-width: 600px) {
   header {
     flex-direction: column;
